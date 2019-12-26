@@ -10,7 +10,7 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0))
         {
             MoveToCursor();
         }
@@ -20,7 +20,7 @@ public class Mover : MonoBehaviour
     private void MoveToCursor()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit; //Unassigned variable that we will use to store: out hit data, in the next line ->
+        RaycastHit hit; //Unassigned variable that we will use to store: "OUT" raycastHit data, in the next line ->
         bool hasHit = Physics.Raycast(ray,out hit);
         if(hasHit)
         {

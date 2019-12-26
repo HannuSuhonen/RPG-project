@@ -2006,17 +2006,22 @@ PrefabInstance:
     - target: {fileID: 2976271387660420073, guid: d6d608110fc02fe4f810f4fdb5d1b1c4,
         type: 3}
       propertyPath: m_AngularSpeed
-      value: 360
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 2976271387660420073, guid: d6d608110fc02fe4f810f4fdb5d1b1c4,
         type: 3}
       propertyPath: m_Acceleration
-      value: 12
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2976271387660420073, guid: d6d608110fc02fe4f810f4fdb5d1b1c4,
         type: 3}
       propertyPath: m_StoppingDistance
-      value: 4
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976271387660420073, guid: d6d608110fc02fe4f810f4fdb5d1b1c4,
+        type: 3}
+      propertyPath: m_Speed
+      value: 5.66
       objectReference: {fileID: 0}
     - target: {fileID: 7497900075163056277, guid: d6d608110fc02fe4f810f4fdb5d1b1c4,
         type: 3}
