@@ -17,12 +17,11 @@ public class Mover : MonoBehaviour
     private void MoveToCursor()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        RaycastHit hit; //Unassigned variable that we will use to store: out hit data, in the next line ->
         bool hasHit = Physics.Raycast(ray,out hit);
         if(hasHit)
         {
             GetComponent<NavMeshAgent>().destination = hit.point;
         }
-        
     }
 }
