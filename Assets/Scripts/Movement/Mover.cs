@@ -5,22 +5,25 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEditor.Animations;
 
-public class Mover : MonoBehaviour
+namespace RPG.Movement
 {
-    void Update()
+    public class Mover : MonoBehaviour
     {
-        UpdateAnimator();
-    }
+        void Update()
+        {
+            UpdateAnimator();
+        }
 
-    public void MoveTo(Vector3 destination)
-    {
-        GetComponent<NavMeshAgent>().destination = destination;
-    }
+        public void MoveTo(Vector3 destination)
+        {
+            GetComponent<NavMeshAgent>().destination = destination;
+        }
 
-    void UpdateAnimator()
-    {
-        Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
-        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-        GetComponent<Animator>().SetFloat("forwardSpeed", localVelocity.z);
+        void UpdateAnimator()
+        {
+            Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            GetComponent<Animator>().SetFloat("forwardSpeed", localVelocity.z);
+        }
     }
 }
