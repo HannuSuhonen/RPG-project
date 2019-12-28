@@ -7,7 +7,6 @@ using UnityEditor.Animations;
 
 public class Mover : MonoBehaviour
 {
-
     void Update()
     {
         if(Input.GetMouseButton(0))

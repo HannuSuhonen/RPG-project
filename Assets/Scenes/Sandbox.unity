@@ -1972,6 +1972,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 362875355853283087, guid: d6d608110fc02fe4f810f4fdb5d1b1c4,
+        type: 3}
+      propertyPath: fMySpeed
+      value: 5.73
+      objectReference: {fileID: 0}
     - target: {fileID: 2976271387660420073, guid: d6d608110fc02fe4f810f4fdb5d1b1c4,
         type: 3}
       propertyPath: m_AngularSpeed
