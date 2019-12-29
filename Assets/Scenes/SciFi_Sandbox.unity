@@ -2981,6 +2981,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1961192789}
+    - target: {fileID: 443508284607223782, guid: 0253b45968367f34eb42a14403939722,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 443508284607223782, guid: 0253b45968367f34eb42a14403939722,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 443508284607223800, guid: 0253b45968367f34eb42a14403939722,
         type: 3}
       propertyPath: m_IsActive

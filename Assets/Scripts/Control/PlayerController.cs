@@ -12,44 +12,43 @@ namespace RPG.Control
     {
         private void Update()
         {
-            InteractWithCombat();
-            InteractWithMovement();
+            if(InteractWithCombat() == true) return; //Stops the update here if combat has been initialised.
+            if(InteractWithMovement() == true) return; 
         }
 
-        private void InteractWithCombat()
+        private bool InteractWithCombat()
         {
-            if (Input.GetMouseButtonDown(0))
+
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            //RaycastHit is an array therefore we need to use foreach. 
+            foreach (RaycastHit hit in hits)
             {
-                RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-                //RaycastHit is an array therefore we need to use foreach. 
-                foreach (RaycastHit hit in hits)
+                CombatTarget target = hit.collider.GetComponent<CombatTarget>();
+                if (target == null) continue; //Continue raycasting, this is to make sure we can cast through walls. 
+
+                if(Input.GetMouseButtonDown(0))
                 {
-                    CombatTarget target = hit.collider.GetComponent<CombatTarget>();
-                    if (target == null) continue; //Continue raycasting, this is to make sure we can cast through walls. 
-                    else
-                    {
-                        GetComponent<Fighter>().Attack(target);
-                    }
+                    GetComponent<Fighter>().Attack(target);
                 }
+                return true;    
             }
+            return false;
+
         }
 
-        private void InteractWithMovement()
-        {
-            if (Input.GetMouseButton(0))
-            {
-                MoveToCursor();
-            }
-        }
-
-        private void MoveToCursor()
+        private bool InteractWithMovement()
         {
             RaycastHit hit;
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
             if (hasHit)
             {
-                GetComponent<Mover>().MoveTo(hit.point);
+                if(Input.GetMouseButton(0))
+                {
+                    GetComponent<Mover>().MoveTo(hit.point);
+                }
+                return true;
             }
+            return false;
         }
 
         private static Ray GetMouseRay()
