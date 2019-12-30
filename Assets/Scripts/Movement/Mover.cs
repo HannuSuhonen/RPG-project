@@ -19,6 +19,11 @@ namespace RPG.Movement
             GetComponent<NavMeshAgent>().destination = destination;
         }
 
+        public void Stop()
+        {
+            GetComponent<NavMeshAgent>().isStopped = true;
+        }
+
         void UpdateAnimator()
         {
             Vector3 velocity = GetComponent<NavMeshAgent>().velocity;

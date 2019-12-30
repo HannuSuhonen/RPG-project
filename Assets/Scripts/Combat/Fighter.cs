@@ -1,17 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Movement;
 
 namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour
     {
-
-        public void Attack(CombatTarget target)
+        Transform target;
+        [SerializeField] float weaponRange = 2f;
+        private void Update()
         {
-            print("Aha! Take that!");
-            float speed = 100f;
-            transform.position = Vector3.MoveTowards(transform.position,target.transform.position, Time.deltaTime * speed);
+            if(target != null)
+            {
+                GetComponent<Mover>().MoveTo(target.position);
+                GetComponent<Mover>().Stop();
+            }
+        }
+        public void Attack(CombatTarget combatTarget)
+        {
+            target = combatTarget.transform;
         }
     }
 }
